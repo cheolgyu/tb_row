@@ -1,10 +1,14 @@
 [package]
 name = "tb_row"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
+repository = "https://github.com/cheolgyu/tb_row"
+readme = "README.md"
+description = "Change struct serialization to tuple. Specifies the order of tuples."
+keywords = ["tb", "row"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 
 [dependencies]
-tb_row_derive = { path = "../tb_row_derive", package = "tb_row_derive" }
+tb_row_derive = { version = "1.0", path = "../tb_row_derive", package = "tb_row_derive" }
