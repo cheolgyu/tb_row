@@ -6,6 +6,7 @@ repository = "https://github.com/cheolgyu/tb_row"
 readme = "README.md"
 description = "Change struct serialization to tuple. Specifies the order of tuples."
 keywords = ["tb", "row"]
+license = "MIT OR Apache-2.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
