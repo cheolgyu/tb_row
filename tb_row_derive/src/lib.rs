@@ -41,8 +41,8 @@ fn get_fields(data: &Data) -> (TokenStream, TokenStream) {
 
                     let mut my_vec: Vec<(Option<proc_macro2::Ident>, usize)> =
                         Vec::with_capacity(size);
-                    for i in 0..size {
-                        my_vec.push((None, i));
+                    for (index, field) in fields.named.iter().enumerate() {
+                        my_vec.push((field.ident.clone(), index));
                     }
 
                     for field in fields.named.iter() {
@@ -70,7 +70,8 @@ fn get_fields(data: &Data) -> (TokenStream, TokenStream) {
 
                     let mut fields_vec_innards = quote!();
                     for i in my_vec {
-                        let field_ident: proc_macro2::Ident = i.0.unwrap();
+                        let field_ident: proc_macro2::Ident =
+                            i.0.expect("오류발생: parser proc_macro2::Ident");
 
                         serde_body.extend(quote!(
                                 ts.serialize_field(&self.#field_ident)?;
